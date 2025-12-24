@@ -1,15 +1,15 @@
 # derekk024.github.io
 
-Personal portfolio site for selected projects in quantitative research, software engineering, and applied ML.
+Personal portfolio site for selected projects in quantitative research, software engineering, and machine learning.
 
-I’m a Computer Science & Mathematics student at UCLA. I like building end-to-end systems: data pipelines, models, evaluation, and the tooling around them.
+I’m a Computer Science & Mathematics student at UCLA. I like building end-to-end systems to solve problems.
 
 ## What you’ll find here
 - Selected projects from my resume (public writeups + limited code where appropriate)
 - Short technical notes on design choices and evaluation
 - Links to demos, reports, and reproducible subsets of work
 
-Some projects are intentionally partial (for privacy, IP, or because they’re part of ongoing work). When that’s the case, I share the approach, experiments, and results I can stand behind without leaking anything sensitive.
+Some projects are intentionally partial (for privacy or because they’re part of ongoing work). When that’s the case, I share the approach, experiments, and results I can stand behind without leaking anything sensitive.
 
 ---
 
@@ -29,9 +29,9 @@ Reinforcement learning pipeline for volatility hedging using market data, with w
 A research and engineering project around systematic equity trading. I’m only publishing non-sensitive parts (evaluation approach and limited strategy components).
 
 - Topics: research workflow, data validation, backtesting design, risk controls
-- What’s public: tooling patterns + experiments that are safe to share
-- What’s not public: full alpha logic and production configs
-- Repo / notes: (link soon)
+- What’s public: nothing for now
+- What’s not public: everything for now
+- Repo / notes: soon
 
 ---
 
@@ -53,7 +53,7 @@ Selected work from my resume related to BSA. Posting a short writeup and any saf
 ---
 
 ## Skills I use often
-- Python, C++, PyTorch, Sci-kit Learn, Pandas
+- Python, C++, PyTorch, Scikit-learn, Pandas
 - Data pipelines and evaluation tooling
 - ML modeling (supervised + RL)
 - Writing clear documentation for technical work
@@ -63,6 +63,6 @@ Selected work from my resume related to BSA. Posting a short writeup and any saf
 ## Contact
 - GitHub: [https://github.com/derekk024](url)
 - LinkedIn: [linkedin.com/in/frank-kronewitter-796334323/](url)
-- Email: (add email)
+- Email: derekkronewitter@gmail.com
 
-_Last updated: (add date)_
+_Last updated: 12/23/2025
