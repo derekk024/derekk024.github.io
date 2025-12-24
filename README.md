@@ -61,8 +61,8 @@ Selected work from my resume related to BSA. Posting a short writeup and any saf
 ---
 
 ## Contact
-- GitHub: [https://github.com/derekk024](url)
-- LinkedIn: [linkedin.com/in/frank-kronewitter-796334323/](url)
+- GitHub: https://github.com/derekk024
+- LinkedIn: linkedin.com/in/frank-kronewitter-796334323/
 - Email: derekkronewitter@gmail.com
 
 _Last updated: 12/23/2025
