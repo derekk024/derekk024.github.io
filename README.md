@@ -20,8 +20,8 @@ Reinforcement learning pipeline for volatility hedging using market data, with w
 
 - Topics: RL, time-series, backtesting, evaluation discipline
 - Stack: Python, PyTorch (and supporting infra)
-- Repo: [https://github.com/derekk024/Public-Reinforcement-Learning-for-Volatility-Hedging-A-Dual-Asset-Strategy-Using-Bitcoin-and-Gold](url) 
-- Writeup: [https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5399564](url)
+- Repo: https://github.com/derekk024/Public-Reinforcement-Learning-for-Volatility-Hedging-A-Dual-Asset-Strategy-Using-Bitcoin-and-Gold
+- Writeup: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5399564
 
 ---
 
@@ -40,15 +40,15 @@ Time-series prediction work combining an LSTM-based model and a tree-based class
 
 - Topics: supervised learning, feature engineering, train/test discipline
 - Stack: Python, scikit-learn, TensorFlow
-- Repo: [https://github.com/derekk024/Decision-Tree-Price-Prediction](url)
+- Repo: https://github.com/derekk024/Decision-Tree-Price-Prediction
 
 ---
 
 ### BSA Project
 Selected work from my resume related to BSA. Posting a short writeup and any safe artifacts (documentation, analysis, or a reproducible subset).
 
-- Repo: [https://github.com/derekk024/BSAFinal/tree/main](url)
-- Writeup: [https://github.com/derekk024/BSAFinal/blob/main/A%20Quantitative%20Framework%20for%20Assessing%20Wide%20Receiver%20Blocking%20Effectiveness%20Using%20Player%20Tracking%20Data.pdf](url)
+- Repo: https://github.com/derekk024/BSAFinal/tree/main
+- Writeup: https://github.com/derekk024/BSAFinal/blob/main/A%20Quantitative%20Framework%20for%20Assessing%20Wide%20Receiver%20Blocking%20Effectiveness%20Using%20Player%20Tracking%20Data.pdf
 
 ---
 
