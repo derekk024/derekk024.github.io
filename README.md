@@ -44,7 +44,7 @@ Time-series prediction work combining an LSTM-based model and a tree-based class
 
 ---
 
-### BSA Project
+### A Quantitative Framework for Assessing Wide Receiver Blocking Effectivenss Using Player Tracking Data
 Selected work from my resume related to BSA. Posting a short writeup and any safe artifacts (documentation, analysis, or a reproducible subset).
 
 - Repo: https://github.com/derekk024/BSAFinal/tree/main
