@@ -65,4 +65,4 @@ Selected work from my resume related to BSA. Posting a short writeup and any saf
 - LinkedIn: linkedin.com/in/frank-kronewitter-796334323/
 - Email: derekkronewitter@gmail.com
 
-_Last updated: 12/23/2025
+- Last updated: 12/24/2025
