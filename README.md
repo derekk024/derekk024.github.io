@@ -20,8 +20,8 @@ Reinforcement learning pipeline for volatility hedging using market data, with w
 
 - Topics: RL, time-series, backtesting, evaluation discipline
 - Stack: Python, PyTorch (and supporting infra)
-- Repo: https://github.com/derekk024/Public-Reinforcement-Learning-for-Volatility-Hedging-A-Dual-Asset-Strategy-Using-Bitcoin-and-Gold
-- Writeup: <a href="[https://papers.ssrn.com](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5399564)">Google</a>
+- Repo: <a href="https://github.com/derekk024/Public-Reinforcement-Learning-for-Volatility-Hedging-A-Dual-Asset-Strategy-Using-Bitcoin-and-Gold" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/Public-Reinforcement-Learning-for-Volatility-Hedging-A-Dual-Asset-Strategy-Using-Bitcoin-and-Gold</a>
+- Writeup: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5399564" target="_blank" rel="noopener noreferrer">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5399564</a>
 
 ---
 
@@ -40,15 +40,15 @@ Time-series prediction work combining an LSTM-based model and a tree-based class
 
 - Topics: supervised learning, feature engineering, train/test discipline
 - Stack: Python, scikit-learn, TensorFlow
-- Repo: https://github.com/derekk024/Decision-Tree-Price-Prediction
+- Repo: <a href="https://github.com/derekk024/Decision-Tree-Price-Prediction" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/Decision-Tree-Price-Prediction</a>
 
 ---
 
 ### A Quantitative Framework for Assessing Wide Receiver Blocking Effectivenss Using Player Tracking Data
 Selected work from my resume related to BSA. Posting a short writeup and any safe artifacts (documentation, analysis, or a reproducible subset).
 
-- Repo: https://github.com/derekk024/BSAFinal/tree/main
-- Writeup: https://github.com/derekk024/BSAFinal/blob/main/A%20Quantitative%20Framework%20for%20Assessing%20Wide%20Receiver%20Blocking%20Effectiveness%20Using%20Player%20Tracking%20Data.pdf
+- Repo: <a href="https://github.com/derekk024/BSAFinal/tree/main" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/BSAFinal/tree/main</a>
+- Writeup: <a href="https://github.com/derekk024/BSAFinal/blob/main/A%20Quantitative%20Framework%20for%20Assessing%20Wide%20Receiver%20Blocking%20Effectiveness%20Using%20Player%20Tracking%20Data.pdf" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/BSAFinal/blob/main/A%20Quantitative%20Framework%20for%20Assessing%20Wide%20Receiver%20Blocking%20Effectiveness%20Using%20Player%20Tracking%20Data.pdf</a>
 
 ---
 
@@ -61,8 +61,8 @@ Selected work from my resume related to BSA. Posting a short writeup and any saf
 ---
 
 ## Contact
-- GitHub: https://github.com/derekk024
-- LinkedIn: https://linkedin.com/in/frank-kronewitter-796334323/
-- Email: derekkronewitter@gmail.com
+- GitHub: <a href="https://github.com/derekk024" target="_blank" rel="noopener noreferrer">https://github.com/derekk024</a>
+- LinkedIn: <a href="https://linkedin.com/in/frank-kronewitter-796334323/" target="_blank" rel="noopener noreferrer">https://linkedin.com/in/frank-kronewitter-796334323/</a>
+- Email: <a href="mailto:derekkronewitter@gmail.com" target="_blank" rel="noopener noreferrer">derekkronewitter@gmail.com</a>
 
-- Last updated: 12/24/2025
+- Last updated: 12/26/2025
