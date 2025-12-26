@@ -20,8 +20,8 @@ Reinforcement learning pipeline for volatility hedging using market data, with w
 
 - Topics: RL, time-series, backtesting, evaluation discipline
 - Stack: Python, PyTorch (and supporting infra)
-- Repo: <a href="[https://www.google.com](https://github.com/derekk024/Public-Reinforcement-Learning-for-Volatility-Hedging-A-Dual-Asset-Strategy-Using-Bitcoin-and-Gold)">Google</a>
-- Writeup: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5399564
+- Repo: https://github.com/derekk024/Public-Reinforcement-Learning-for-Volatility-Hedging-A-Dual-Asset-Strategy-Using-Bitcoin-and-Gold
+- Writeup: <a href="[https://papers.ssrn.com](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5399564)">Google</a>
 
 ---
 
