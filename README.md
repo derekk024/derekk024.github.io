@@ -2,7 +2,7 @@
 
 Personal portfolio site for selected projects in quantitative research, software engineering, and machine learning.
 
-I’m a Computer Science & Mathematics student at UCLA. I like building end-to-end systems to solve problems.
+Hi I'm Frank Kronewitter. I’m a Computer Science & Mathematics student at UCLA. I like building end-to-end systems to solve problems.
 
 ## What you’ll find here
 - Selected projects from my resume (public writeups + limited code where appropriate)
