@@ -39,7 +39,7 @@ A research and engineering project around systematic equity trading. I’m only 
 A systems engineering project building a production-style telemetry pipeline.
 
 - Topics: C++ microservices, HTTP APIs, SQLite WAL persistence, monitoring/metrics, background polling, load testing
-- Repo: 
+- Repo: <a href="https://github.com/derekk024/TelemetryOps" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/TelemetryOps</a>
 
 ---
 
