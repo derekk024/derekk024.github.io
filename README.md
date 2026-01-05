@@ -29,9 +29,17 @@ Reinforcement learning pipeline for volatility hedging using market data, with w
 A research and engineering project around systematic equity trading. I’m only publishing non-sensitive parts (evaluation approach and limited strategy components).
 
 - Topics: research workflow, data validation, backtesting design, risk controls
-- What’s public: <a href="https://github.com/derekk024/Quant-Project" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/Quant-Project</a>
+- What’s public: An example machine learning ticker sector strategy and evaluation.
 - What’s not public: The entire domain of tickers traded
-- Repo / notes: within the GitHub
+- Repo / notes: <a href="https://github.com/derekk024/Quant-Project" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/Quant-Project</a>
+
+---
+
+### TelemetryOps
+A systems engineering project building a production-style telemetry pipeline.
+
+- Topics: C++ microservices, HTTP APIs, SQLite WAL persistence, monitoring/metrics, background polling, load testing
+- Repo: 
 
 ---
 
