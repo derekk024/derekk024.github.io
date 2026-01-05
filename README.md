@@ -29,9 +29,9 @@ Reinforcement learning pipeline for volatility hedging using market data, with w
 A research and engineering project around systematic equity trading. I’m only publishing non-sensitive parts (evaluation approach and limited strategy components).
 
 - Topics: research workflow, data validation, backtesting design, risk controls
-- What’s public: nothing for now
-- What’s not public: everything for now
-- Repo / notes: soon
+- What’s public: <a href="https://github.com/derekk024/Quant-Project" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/Quant-Project</a>
+- What’s not public: The entire domain of tickers traded
+- Repo / notes: within the GitHub
 
 ---
 
