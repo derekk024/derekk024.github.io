@@ -15,6 +15,16 @@ Some projects are intentionally partial (for privacy or because they’re part o
 
 ## Projects
 
+### UCLA Department of Mathematics - Statistical Arbitrage of the Cryptocurrency Market
+Research + backtesting pipeline for statistical arbitrage in crypto, using the PCA mean-reverting strategy from Avellaneda & Lee (2010).
+
+- Topics: PCA, time-series, backtesting, evaluation discipline
+- Stack: Python, Pandas, Numpy
+- Repo: <a href="https://github.com/derekk024/Cryptocurrency-Arbitrage-Research" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/Cryptocurrency-Arbitrage-Research</a>
+- Writeup: <a href="https://overleaf.com/read/cbncwtpwgjvm#616f27" target="_blank" rel="noopener noreferrer">https://overleaf.com/read/cbncwtpwgjvm#616f27?abstract_id=5399564</a>
+
+---
+
 ### Rebellion Research — RL Volatility Hedging (BTC / GLD)
 Reinforcement learning pipeline for volatility hedging using market data, with walk-forward evaluation and a focus on out-of-sample robustness.
 
@@ -53,7 +63,7 @@ Time-series prediction work combining an LSTM-based model and a tree-based class
 ---
 
 ### A Quantitative Framework for Assessing Wide Receiver Blocking Effectivenss Using Player Tracking Data
-Selected work from my resume related to BSA. Posting a short writeup and any safe artifacts (documentation, analysis, or a reproducible subset).
+Selected work from my resume related to Bruin Sports Analytics. Posting a short writeup and any safe artifacts (documentation, analysis, or a reproducible subset).
 
 - Repo: <a href="https://github.com/derekk024/BSAFinal/tree/main" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/BSAFinal/tree/main</a>
 - Writeup: <a href="https://github.com/derekk024/BSAFinal/blob/main/A%20Quantitative%20Framework%20for%20Assessing%20Wide%20Receiver%20Blocking%20Effectiveness%20Using%20Player%20Tracking%20Data.pdf" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/BSAFinal/blob/main/A%20Quantitative%20Framework%20for%20Assessing%20Wide%20Receiver%20Blocking%20Effectiveness%20Using%20Player%20Tracking%20Data.pdf</a>
@@ -73,4 +83,4 @@ Selected work from my resume related to BSA. Posting a short writeup and any saf
 - LinkedIn: <a href="https://linkedin.com/in/frank-kronewitter-796334323/" target="_blank" rel="noopener noreferrer">https://linkedin.com/in/frank-kronewitter-796334323/</a>
 - Email: <a href="mailto:derekkronewitter@gmail.com" target="_blank" rel="noopener noreferrer">derekkronewitter@gmail.com</a>
 
-- Last updated: 01/05/2026
+- Last updated: 02/15/2026
