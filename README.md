@@ -302,10 +302,10 @@
   <!-- INFO PANEL -->
   <section class="tab-panel active" id="tab-info" role="tabpanel">
     <p class="info-bio">
-      I'm a Computer Science &amp; Mathematics student at UCLA. I like building end-to-end systems to solve problems — from research pipelines and backtesting frameworks to production-style infrastructure.
+      I'm a Mathematics &amp; Computer Science student at UCLA. I have interests in probability theory, combinatorics, number theory, and algorithms.
     </p>
     <p class="info-bio" style="margin-top:14px;">
-      My work spans quantitative research, machine learning, and systems engineering. I care about evaluation discipline, reproducibility, and writing technical work that's easy to stand behind.
+      My work spans quantitative research, machine learning, and systems engineering. This includes personal projects and projects completed for various organizations.
     </p>
 
     <p class="section-label">Skills</p>
