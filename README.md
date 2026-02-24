@@ -278,7 +278,7 @@
   <header>
     <div class="avatar-wrap" id="avatarWrap">
       <!-- Replace the placeholder letter with your photo by setting the img src below -->
-      <img id="avatarImg" src="" alt="Frank Kronewitter" />
+      <img id="avatarImg" src="headshot.jpg" alt="Frank Kronewitter" />
       <span class="avatar-placeholder" id="avatarPlaceholder">F</span>
     </div>
     <div class="header-text">
@@ -389,12 +389,8 @@
 
   <!-- MISC PANEL -->
   <section class="tab-panel" id="tab-misc" role="tabpanel">
-    <p class="section-label">Fun Facts</p>
+    <p class="section-label">Miscellaneous</p>
     <ul class="facts-list">
-      <li><span class="fact-num">01</span><span>Add a fun fact about yourself here.</span></li>
-      <li><span class="fact-num">02</span><span>Add another fun fact here.</span></li>
-      <li><span class="fact-num">03</span><span>And another one — keep it personal and memorable.</span></li>
-      <li><span class="fact-num">04</span><span>One more — could be an interest, a quirky habit, or a small accomplishment you're proud of.</span></li>
     </ul>
   </section>
 
