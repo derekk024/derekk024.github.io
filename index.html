@@ -224,18 +224,12 @@
     .project-links a:hover { border-color: var(--accent); }
 
     /* ── EDUCATION ── */
-    .edu-card {
+    .edu-header {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 22px 24px;
-      margin-bottom: 12px;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-
-    .edu-card:hover {
-      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-      transform: translateY(-1px);
+      margin-bottom: 28px;
     }
 
     .edu-school {
@@ -259,12 +253,62 @@
       letter-spacing: 0.05em;
     }
 
-    .edu-details {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: #444;
-      line-height: 1.6;
+    .edu-gpa {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 4px;
+      padding: 3px 12px;
+      font-size: 0.82rem;
+      font-weight: 500;
     }
+
+    .coursework-label {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+      color: var(--fg);
+    }
+
+    .course-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .course-table thead tr {
+      border-bottom: 2px solid var(--border);
+    }
+
+    .course-table th {
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      padding: 0 16px 10px 0;
+    }
+
+    .course-table th:last-child { padding-right: 0; }
+
+    .course-table td {
+      padding: 10px 16px 10px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg);
+      vertical-align: top;
+    }
+
+    .course-table td:last-child {
+      padding-right: 0;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .course-table tbody tr:last-child td { border-bottom: none; }
+
+    .course-table tbody tr:hover td { background: var(--accent-light); }
 
     /* ── MISC ── */
     .facts-list {
@@ -314,7 +358,7 @@
       <nav class="header-links">
         <a href="https://github.com/derekk024" target="_blank">GitHub</a>
         <a href="https://linkedin.com/in/frank-kronewitter-796334323/" target="_blank">LinkedIn</a>
-        <a href="mailto:derekkronewitter@gmail.com">Email</a>
+        <a href="/cdn-cgi/l/email-protection#4b2f2e392e20203924252e3c223f3f2e390b2c262a222765282426">Email</a>
       </nav>
     </div>
   </header>
@@ -406,9 +450,9 @@
 
     <div class="edu-card">
       <div class="edu-school">University of California, Los Angeles</div>
-      <div class="edu-degree">B.S.</div>
-      <div class="edu-meta"> Los Angeles, CA</div>
-      <p class="edu-details"></p>
+      <div class="edu-degree">B.S. Mathematics &amp; Computer Science</div>
+      <div class="edu-meta">Expected Graduation · Year &nbsp;·&nbsp; Los Angeles, CA</div>
+      <p class="edu-details">Add any relevant coursework, honors, clubs, or other details here.</p>
     </div>
 
   </section>
@@ -422,7 +466,7 @@
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Tab switching
   const buttons = document.querySelectorAll('.tab-btn');
   const panels  = document.querySelectorAll('.tab-panel');
@@ -439,10 +483,3 @@
   // Avatar: show image if src is set, hide placeholder
   const img = document.getElementById('avatarImg');
   const placeholder = document.getElementById('avatarPlaceholder');
-  if (img.src && img.src !== window.location.href) {
-    img.style.display = 'block';
-    placeholder.style.display = 'none';
-  }
-</script>
-</body>
-</html>
