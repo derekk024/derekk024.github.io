@@ -1,86 +1,426 @@
-# derekk024.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Frank Kronewitter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-Personal portfolio site for selected projects in quantitative research, software engineering, and machine learning.
+    :root {
+      --bg: #f9f8f5;
+      --fg: #1a1a18;
+      --muted: #7a7a72;
+      --accent: #2d6a4f;
+      --accent-light: #e8f4ef;
+      --border: #e2e0d8;
+      --card: #ffffff;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
 
-Hi I'm Frank Kronewitter. I’m a Computer Science & Mathematics student at UCLA. I like building end-to-end systems to solve problems.
+    html { scroll-behavior: smooth; }
 
-## What you’ll find here
-- Selected projects from my resume (public writeups + limited code where appropriate)
-- Short technical notes on design choices and evaluation
-- Links to demos, reports, and reproducible subsets of work
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
 
-Some projects are intentionally partial (for privacy or because they’re part of ongoing work). When that’s the case, I share the approach, experiments, and results I can stand behind without leaking anything sensitive.
+    /* ── LAYOUT ── */
+    .site-wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
 
----
+    /* ── HEADER ── */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.6s ease both;
+    }
 
-## Projects
+    .avatar-wrap {
+      flex-shrink: 0;
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-family: var(--serif);
+      font-size: 36px;
+    }
 
-### UCLA Department of Mathematics - Statistical Arbitrage of the Cryptocurrency Market
-Research + backtesting pipeline for statistical arbitrage in crypto, using the PCA mean-reverting strategy from Avellaneda & Lee (2010).
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none; /* shown via JS once src is set */
+    }
 
-- Topics: PCA, time-series, backtesting, evaluation discipline
-- Stack: Python, Pandas, Numpy
-- Repo: <a href="https://github.com/derekk024/Cryptocurrency-Arbitrage-Research" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/Cryptocurrency-Arbitrage-Research</a>
-- Writeup: <a href="https://overleaf.com/read/cbncwtpwgjvm#616f27" target="_blank" rel="noopener noreferrer">https://overleaf.com/read/cbncwtpwgjvm#616f27?abstract_id=5399564</a>
+    .avatar-placeholder { pointer-events: none; }
 
----
+    .header-text h1 {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
 
-### Rebellion Research — RL Volatility Hedging (BTC / GLD)
-Reinforcement learning pipeline for volatility hedging using market data, with walk-forward evaluation and a focus on out-of-sample robustness.
+    .header-text .tagline {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 300;
+    }
 
-- Topics: RL, time-series, backtesting, evaluation discipline
-- Stack: Python, PyTorch (and supporting infra)
-- Repo: <a href="https://github.com/derekk024/Public-Reinforcement-Learning-for-Volatility-Hedging-A-Dual-Asset-Strategy-Using-Bitcoin-and-Gold" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/Public-Reinforcement-Learning-for-Volatility-Hedging-A-Dual-Asset-Strategy-Using-Bitcoin-and-Gold</a>
-- Writeup: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5399564" target="_blank" rel="noopener noreferrer">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5399564</a>
+    .header-links {
+      display: flex;
+      gap: 18px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
 
----
+    .header-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
 
-### Algorithmic Equity Trading (Selected Components)
-A research and engineering project around systematic equity trading. I’m only publishing non-sensitive parts (evaluation approach and limited strategy components).
+    .header-links a:hover { border-color: var(--accent); }
 
-- Topics: research workflow, data validation, backtesting design, risk controls
-- What’s public: An example machine learning ticker sector strategy and evaluation.
-- What’s not public: The entire domain of tickers traded
-- Repo / notes: <a href="https://github.com/derekk024/Quant-Project" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/Quant-Project</a>
+    /* ── TABS ── */
+    .tabs {
+      display: flex;
+      gap: 0;
+      margin-top: 36px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
 
----
+    .tab-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 12px 22px 11px;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
 
-### TelemetryOps
-A systems engineering project building a production-style telemetry pipeline.
+    .tab-btn:hover { color: var(--fg); }
 
-- Topics: C++ microservices, HTTP APIs, SQLite WAL persistence, monitoring/metrics, background polling, load testing
-- Repo: <a href="https://github.com/derekk024/TelemetryOps" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/TelemetryOps</a>
+    .tab-btn.active {
+      color: var(--fg);
+      border-bottom-color: var(--accent);
+    }
 
----
+    /* ── PANELS ── */
+    .tab-panel { display: none; padding-top: 40px; animation: fadeUp 0.4s ease both; }
+    .tab-panel.active { display: block; }
 
-### LSTM Forecasting + Tree-Based Model (Python)
-Time-series prediction work combining an LSTM-based model and a tree-based classifier for decision support. Focus on feature design, leakage avoidance, and evaluation.
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-- Topics: supervised learning, feature engineering, train/test discipline
-- Stack: Python, scikit-learn, TensorFlow
-- Repo: <a href="https://github.com/derekk024/Decision-Tree-Price-Prediction" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/Decision-Tree-Price-Prediction</a>
+    /* ── INFO ── */
+    .info-bio {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 600px;
+      color: var(--fg);
+    }
 
----
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
 
-### A Quantitative Framework for Assessing Wide Receiver Blocking Effectivenss Using Player Tracking Data
-Selected work from my resume related to Bruin Sports Analytics. Posting a short writeup and any safe artifacts (documentation, analysis, or a reproducible subset).
+    .skill-tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 4px;
+      padding: 4px 12px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
 
-- Repo: <a href="https://github.com/derekk024/BSAFinal/tree/main" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/BSAFinal/tree/main</a>
-- Writeup: <a href="https://github.com/derekk024/BSAFinal/blob/main/A%20Quantitative%20Framework%20for%20Assessing%20Wide%20Receiver%20Blocking%20Effectiveness%20Using%20Player%20Tracking%20Data.pdf" target="_blank" rel="noopener noreferrer">https://github.com/derekk024/BSAFinal/blob/main/A%20Quantitative%20Framework%20for%20Assessing%20Wide%20Receiver%20Blocking%20Effectiveness%20Using%20Player%20Tracking%20Data.pdf</a>
+    .section-label {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      margin: 36px 0 14px;
+      color: var(--fg);
+    }
 
----
+    /* ── PROJECTS ── */
+    .project-list { display: flex; flex-direction: column; gap: 1px; }
 
-## Skills I use often
-- Python, C++, PyTorch, Scikit-learn, Pandas
-- Data pipelines and evaluation tooling
-- ML modeling (supervised + RL)
-- Writing clear documentation for technical work
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 24px;
+      margin-bottom: 12px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
 
----
+    .project-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transform: translateY(-1px);
+    }
 
-## Contact
-- GitHub: <a href="https://github.com/derekk024" target="_blank" rel="noopener noreferrer">https://github.com/derekk024</a>
-- LinkedIn: <a href="https://linkedin.com/in/frank-kronewitter-796334323/" target="_blank" rel="noopener noreferrer">https://linkedin.com/in/frank-kronewitter-796334323/</a>
-- Email: <a href="mailto:derekkronewitter@gmail.com" target="_blank" rel="noopener noreferrer">derekkronewitter@gmail.com</a>
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
 
-- Last updated: 02/15/2026
+    .project-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .project-desc {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .project-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-light);
+      transition: border-color 0.2s;
+    }
+
+    .project-links a:hover { border-color: var(--accent); }
+
+    /* ── MISC ── */
+    .facts-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .facts-list li {
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .fact-num {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--accent);
+      font-size: 1.1rem;
+      min-width: 24px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 520px) {
+      header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .header-text h1 { font-size: 1.8rem; }
+      .tab-btn { padding: 12px 14px 11px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="site-wrapper">
+
+  <!-- HEADER -->
+  <header>
+    <div class="avatar-wrap" id="avatarWrap">
+      <!-- Replace the placeholder letter with your photo by setting the img src below -->
+      <img id="avatarImg" src="" alt="Frank Kronewitter" />
+      <span class="avatar-placeholder" id="avatarPlaceholder">F</span>
+    </div>
+    <div class="header-text">
+      <h1>Frank Kronewitter</h1>
+      <p class="tagline">CS &amp; Mathematics · UCLA &nbsp;·&nbsp; Quant Research &amp; ML</p>
+      <nav class="header-links">
+        <a href="https://github.com/derekk024" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/frank-kronewitter-796334323/" target="_blank">LinkedIn</a>
+        <a href="mailto:derekkronewitter@gmail.com">Email</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- TABS -->
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" role="tab" data-tab="info">Info</button>
+    <button class="tab-btn" role="tab" data-tab="projects">Projects</button>
+    <button class="tab-btn" role="tab" data-tab="misc">Miscellaneous</button>
+  </div>
+
+  <!-- INFO PANEL -->
+  <section class="tab-panel active" id="tab-info" role="tabpanel">
+    <p class="info-bio">
+      I'm a Computer Science &amp; Mathematics student at UCLA. I like building end-to-end systems to solve problems — from research pipelines and backtesting frameworks to production-style infrastructure.
+    </p>
+    <p class="info-bio" style="margin-top:14px;">
+      My work spans quantitative research, machine learning, and systems engineering. I care about evaluation discipline, reproducibility, and writing technical work that's easy to stand behind.
+    </p>
+
+    <p class="section-label">Skills</p>
+    <div class="skills-grid">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">C++</span>
+      <span class="skill-tag">PyTorch</span>
+      <span class="skill-tag">Scikit-learn</span>
+      <span class="skill-tag">Pandas / NumPy</span>
+      <span class="skill-tag">Reinforcement Learning</span>
+      <span class="skill-tag">Time-Series Modeling</span>
+      <span class="skill-tag">Backtesting</span>
+      <span class="skill-tag">Data Pipelines</span>
+      <span class="skill-tag">TensorFlow</span>
+    </div>
+  </section>
+
+  <!-- PROJECTS PANEL -->
+  <section class="tab-panel" id="tab-projects" role="tabpanel">
+    <div class="project-list">
+
+      <div class="project-card">
+        <div class="project-title">Statistical Arbitrage of the Cryptocurrency Market</div>
+        <div class="project-meta">UCLA Department of Mathematics &nbsp;·&nbsp; PCA · Time-Series · Backtesting</div>
+        <p class="project-desc">Research and backtesting pipeline for statistical arbitrage in crypto, using the PCA mean-reverting strategy from Avellaneda &amp; Lee (2010). Built with Python, Pandas, and NumPy.</p>
+        <div class="project-links">
+          <a href="https://github.com/derekk024/Cryptocurrency-Arbitrage-Research" target="_blank">Repo →</a>
+          <a href="https://overleaf.com/read/cbncwtpwgjvm#616f27" target="_blank">Writeup →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">RL Volatility Hedging — BTC / GLD</div>
+        <div class="project-meta">Rebellion Research &nbsp;·&nbsp; RL · Walk-Forward Evaluation · PyTorch</div>
+        <p class="project-desc">Reinforcement learning pipeline for volatility hedging using market data, with walk-forward evaluation and a focus on out-of-sample robustness across Bitcoin and Gold.</p>
+        <div class="project-links">
+          <a href="https://github.com/derekk024/Public-Reinforcement-Learning-for-Volatility-Hedging-A-Dual-Asset-Strategy-Using-Bitcoin-and-Gold" target="_blank">Repo →</a>
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5399564" target="_blank">SSRN Paper →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">Algorithmic Equity Trading (Selected Components)</div>
+        <div class="project-meta">Research · Backtesting Design · Risk Controls · ML Strategy</div>
+        <p class="project-desc">Systematic equity trading research and engineering. Public components include an example ML ticker-sector strategy and evaluation. Strategy domain kept private.</p>
+        <div class="project-links">
+          <a href="https://github.com/derekk024/Quant-Project" target="_blank">Repo →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">TelemetryOps</div>
+        <div class="project-meta">Systems Engineering &nbsp;·&nbsp; C++ · HTTP APIs · SQLite WAL · Load Testing</div>
+        <p class="project-desc">Production-style telemetry pipeline built with C++ microservices, HTTP APIs, SQLite WAL persistence, monitoring/metrics, background polling, and load testing.</p>
+        <div class="project-links">
+          <a href="https://github.com/derekk024/TelemetryOps" target="_blank">Repo →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">LSTM Forecasting + Tree-Based Model</div>
+        <div class="project-meta">Supervised Learning · Feature Engineering · TensorFlow · Scikit-learn</div>
+        <p class="project-desc">Time-series prediction combining an LSTM-based model and a tree-based classifier for decision support. Focus on feature design, leakage avoidance, and evaluation discipline.</p>
+        <div class="project-links">
+          <a href="https://github.com/derekk024/Decision-Tree-Price-Prediction" target="_blank">Repo →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">WR Blocking Effectiveness — Player Tracking</div>
+        <div class="project-meta">Bruin Sports Analytics &nbsp;·&nbsp; Quantitative Sports Analysis</div>
+        <p class="project-desc">A quantitative framework for assessing wide receiver blocking effectiveness using NFL player tracking data. Built for Bruin Sports Analytics.</p>
+        <div class="project-links">
+          <a href="https://github.com/derekk024/BSAFinal/tree/main" target="_blank">Repo →</a>
+          <a href="https://github.com/derekk024/BSAFinal/blob/main/A%20Quantitative%20Framework%20for%20Assessing%20Wide%20Receiver%20Blocking%20Effectiveness%20Using%20Player%20Tracking%20Data.pdf" target="_blank">Writeup →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MISC PANEL -->
+  <section class="tab-panel" id="tab-misc" role="tabpanel">
+    <p class="section-label">Fun Facts</p>
+    <ul class="facts-list">
+      <li><span class="fact-num">01</span><span>Add a fun fact about yourself here.</span></li>
+      <li><span class="fact-num">02</span><span>Add another fun fact here.</span></li>
+      <li><span class="fact-num">03</span><span>And another one — keep it personal and memorable.</span></li>
+      <li><span class="fact-num">04</span><span>One more — could be an interest, a quirky habit, or a small accomplishment you're proud of.</span></li>
+    </ul>
+  </section>
+
+</div>
+
+<script>
+  // Tab switching
+  const buttons = document.querySelectorAll('.tab-btn');
+  const panels  = document.querySelectorAll('.tab-panel');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Avatar: show image if src is set, hide placeholder
+  const img = document.getElementById('avatarImg');
+  const placeholder = document.getElementById('avatarPlaceholder');
+  if (img.src && img.src !== window.location.href) {
+    img.style.display = 'block';
+    placeholder.style.display = 'none';
+  }
+</script>
+</body>
+</html>
