@@ -159,22 +159,6 @@
       color: var(--fg);
     }
 
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 28px;
-    }
-
-    .skill-tag {
-      background: var(--accent-light);
-      color: var(--accent);
-      border-radius: 4px;
-      padding: 4px 12px;
-      font-size: 0.82rem;
-      font-weight: 500;
-    }
-
     .section-label {
       font-family: var(--serif);
       font-size: 1.15rem;
@@ -239,6 +223,49 @@
 
     .project-links a:hover { border-color: var(--accent); }
 
+    /* ── EDUCATION ── */
+    .edu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 24px;
+      margin-bottom: 12px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .edu-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transform: translateY(-1px);
+    }
+
+    .edu-school {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .edu-degree {
+      font-size: 0.9rem;
+      color: var(--fg);
+      margin-top: 4px;
+    }
+
+    .edu-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .edu-details {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
     /* ── MISC ── */
     .facts-list {
       list-style: none;
@@ -278,7 +305,6 @@
   <!-- HEADER -->
   <header>
     <div class="avatar-wrap" id="avatarWrap">
-      <!-- Replace the placeholder letter with your photo by setting the img src below -->
       <img id="avatarImg" src="headshot.jpg" alt="Frank Kronewitter" />
       <span class="avatar-placeholder" id="avatarPlaceholder">F</span>
     </div>
@@ -297,6 +323,7 @@
   <div class="tabs" role="tablist">
     <button class="tab-btn active" role="tab" data-tab="info">Info</button>
     <button class="tab-btn" role="tab" data-tab="projects">Projects</button>
+    <button class="tab-btn" role="tab" data-tab="education">Education</button>
     <button class="tab-btn" role="tab" data-tab="misc">Miscellaneous</button>
   </div>
 
@@ -308,7 +335,6 @@
     <p class="info-bio" style="margin-top:14px;">
       My work spans quantitative research, machine learning, and systems engineering. This includes personal projects and projects completed for various organizations.
     </p>
-
   </section>
 
   <!-- PROJECTS PANEL -->
@@ -373,6 +399,18 @@
       </div>
 
     </div>
+  </section>
+
+  <!-- EDUCATION PANEL -->
+  <section class="tab-panel" id="tab-education" role="tabpanel">
+
+    <div class="edu-card">
+      <div class="edu-school">University of California, Los Angeles</div>
+      <div class="edu-degree">B.S. Mathematics &amp; Computer Science</div>
+      <div class="edu-meta">Expected Graduation · Year &nbsp;·&nbsp; Los Angeles, CA</div>
+      <p class="edu-details">Add any relevant coursework, honors, clubs, or other details here.</p>
+    </div>
+
   </section>
 
   <!-- MISC PANEL -->
