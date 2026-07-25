@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frank Kronewitter — Mathematics &amp; Computer Science at UCLA</title>
   <meta name="description" content="UCLA Mathematics and Computer Science student exploring probability, stochastic processes, mathematical research, and performance-oriented software.">
   <meta name="author" content="Frank Kronewitter">
-  <meta name="theme-color" content="#f4f1e9">
+  <meta name="theme-color" content="#f9f8f5">
   <link rel="canonical" href="https://derekk024.github.io/">
 
   <meta property="og:type" content="website">
@@ -26,1058 +26,538 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --paper: #f4f1e9;
-      --paper-deep: #ebe6da;
-      --ink: #1d241f;
-      --ink-soft: #4d574f;
-      --sage: #345f4b;
-      --sage-dark: #244735;
-      --sage-pale: #dce8df;
-      --clay: #9e5e46;
-      --line: #d4d0c5;
-      --white: #fbfaf6;
-      --serif: "DM Serif Display", Georgia, serif;
-      --sans: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --shadow: 0 20px 55px rgba(37, 47, 39, 0.09);
+      --bg: #f9f8f5;
+      --fg: #1a1a18;
+      --muted: #7a7a72;
+      --accent: #2d6a4f;
+      --accent-light: #e8f4ef;
+      --border: #e2e0d8;
+      --card: #ffffff;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
     }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 6rem;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 10% 7%, rgba(157, 177, 155, 0.22), transparent 25rem),
-        radial-gradient(circle at 90% 34%, rgba(194, 151, 121, 0.13), transparent 23rem),
-        var(--paper);
-      color: var(--ink);
+      background: var(--bg);
+      color: var(--fg);
       font-family: var(--sans);
-      font-size: 1rem;
-      line-height: 1.7;
-      text-rendering: optimizeLegibility;
+      font-size: 15px;
+      line-height: 1.65;
+      min-height: 100vh;
     }
 
-    a {
-      color: inherit;
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
     }
 
-    img {
-      display: block;
-      max-width: 100%;
+    /* ── LAYOUT ── */
+    .site-wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
     }
 
-    .skip-link {
-      position: fixed;
-      z-index: 100;
-      top: 0.75rem;
-      left: 0.75rem;
-      padding: 0.65rem 0.9rem;
-      border-radius: 0.35rem;
-      background: var(--ink);
-      color: var(--white);
-      transform: translateY(-160%);
-      transition: transform 150ms ease;
-    }
-
-    .skip-link:focus {
-      transform: translateY(0);
-    }
-
-    :focus-visible {
-      outline: 3px solid var(--clay);
-      outline-offset: 4px;
-      border-radius: 0.2rem;
-    }
-
-    .shell {
-      width: min(1120px, calc(100% - 3rem));
-      margin-inline: auto;
-    }
-
-    .site-header {
-      position: relative;
-      z-index: 10;
-      border-bottom: 1px solid rgba(77, 87, 79, 0.19);
-    }
-
-    .nav {
-      min-height: 5.25rem;
+    /* ── HEADER ── */
+    header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
+      gap: 36px;
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.6s ease both;
     }
 
-    .wordmark {
-      font-family: var(--serif);
-      font-size: 1.08rem;
-      letter-spacing: 0.01em;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: clamp(1rem, 2.5vw, 2rem);
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--ink-soft);
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: color 160ms ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--sage);
-    }
-
-    .hero {
-      min-height: min(790px, calc(100vh - 5.25rem));
-      display: grid;
-      grid-template-columns: minmax(0, 1.22fr) minmax(300px, 0.78fr);
-      align-items: center;
-      gap: clamp(3rem, 8vw, 7.5rem);
-      padding-block: clamp(4rem, 9vw, 7.5rem);
-    }
-
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin: 0 0 1.25rem;
-      color: var(--sage);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      width: 2.6rem;
-      height: 1px;
-      background: currentColor;
-      content: "";
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1 {
-      max-width: 13ch;
-      margin-bottom: 1.5rem;
-      font-family: var(--serif);
-      font-size: clamp(3.4rem, 7.3vw, 6.7rem);
-      font-weight: 400;
-      letter-spacing: -0.045em;
-      line-height: 0.94;
-    }
-
-    h1 em {
-      color: var(--sage);
-      font-weight: 400;
-    }
-
-    .hero-copy {
-      max-width: 43rem;
-      margin-bottom: 2rem;
-      color: var(--ink-soft);
-      font-size: clamp(1.05rem, 1.8vw, 1.22rem);
-      line-height: 1.75;
-    }
-
-    .hero-actions,
-    .link-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.75rem 1.25rem;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      min-height: 3rem;
-      padding: 0.72rem 1.1rem;
-      border: 1px solid var(--sage);
-      border-radius: 999px;
-      background: var(--sage);
-      color: var(--white);
-      font-size: 0.84rem;
-      font-weight: 600;
-      letter-spacing: 0.045em;
-      text-decoration: none;
-      transition: background 160ms ease, color 160ms ease, transform 160ms ease;
-    }
-
-    .button:hover {
-      background: var(--sage-dark);
-      transform: translateY(-1px);
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--sage);
-    }
-
-    .button.secondary:hover {
-      background: var(--sage-pale);
-      color: var(--sage-dark);
-    }
-
-    .button .arrow {
-      font-size: 1.05em;
-      transition: transform 160ms ease;
-    }
-
-    .button:hover .arrow {
-      transform: translate(2px, -2px);
-    }
-
-    .portrait-stage {
-      position: relative;
-      width: min(100%, 370px);
-      justify-self: end;
-      padding: 1.15rem 1.15rem 0 0;
-    }
-
-    .portrait-stage::before {
-      position: absolute;
-      inset: 0 0 auto auto;
-      z-index: -1;
-      width: 72%;
-      height: 76%;
-      border: 1px solid rgba(52, 95, 75, 0.42);
-      border-radius: 12rem 12rem 1.25rem 1.25rem;
-      content: "";
-    }
-
-    .portrait {
+    .avatar-wrap {
+      flex-shrink: 0;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
       overflow: hidden;
-      border: 8px solid rgba(251, 250, 246, 0.84);
-      border-radius: 12rem 12rem 1.1rem 1.1rem;
-      box-shadow: var(--shadow);
-      aspect-ratio: 0.8;
-      background: var(--paper-deep);
+      border: 2px solid var(--border);
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-family: var(--serif);
+      font-size: 36px;
     }
 
-    .portrait img {
+    .avatar-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 50% center;
+      object-position: 25% center;
+      display: none;
     }
 
-    .math-note {
-      position: absolute;
-      right: -2.1rem;
-      bottom: 2.5rem;
-      max-width: 10.5rem;
-      padding: 0.9rem 1rem;
-      border: 1px solid var(--line);
-      border-radius: 0.7rem;
-      background: rgba(251, 250, 246, 0.95);
-      box-shadow: 0 12px 32px rgba(37, 47, 39, 0.1);
-      color: var(--sage);
+    .avatar-placeholder { pointer-events: none; }
+
+    .header-text h1 {
       font-family: var(--serif);
-      font-size: 1rem;
-      line-height: 1.45;
-    }
-
-    .math-note span {
-      display: block;
-      margin-top: 0.25rem;
-      color: var(--ink-soft);
-      font-family: var(--sans);
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    main {
-      overflow: hidden;
-    }
-
-    .section {
-      padding-block: clamp(5rem, 10vw, 8rem);
-    }
-
-    .section + .section {
-      border-top: 1px solid var(--line);
-    }
-
-    .section-heading {
-      display: grid;
-      grid-template-columns: minmax(180px, 0.38fr) minmax(0, 0.62fr);
-      gap: 2rem;
-      align-items: start;
-      margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
-    }
-
-    .section-kicker {
-      margin: 0;
-      color: var(--sage);
-      font-size: 0.76rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      max-width: 17ch;
-      margin-bottom: 0;
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 5vw, 4.3rem);
+      font-size: 2.2rem;
       font-weight: 400;
-      letter-spacing: -0.035em;
-      line-height: 1.04;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
     }
 
-    h2 em {
-      color: var(--clay);
-      font-weight: 400;
+    .header-text .tagline {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 300;
     }
 
-    .questions {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 1rem;
-      background: var(--line);
-    }
-
-    .question {
-      min-height: 18rem;
-      padding: clamp(1.5rem, 3vw, 2.25rem);
-      background: rgba(251, 250, 246, 0.84);
-    }
-
-    .question-index {
-      display: block;
-      margin-bottom: 3.4rem;
-      color: var(--clay);
-      font-family: var(--serif);
-      font-style: italic;
-    }
-
-    h3 {
-      margin-bottom: 0.85rem;
-      font-family: var(--serif);
-      font-size: 1.45rem;
-      font-weight: 400;
-      line-height: 1.2;
-    }
-
-    .question p,
-    .work-card p,
-    .education-copy,
-    .beyond-card p {
-      margin-bottom: 0;
-      color: var(--ink-soft);
-      font-size: 0.94rem;
-    }
-
-    .research-feature {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-      gap: clamp(2rem, 6vw, 5rem);
-      padding: clamp(2rem, 5vw, 4.3rem);
-      border-radius: 1.2rem;
-      background: var(--sage-dark);
-      color: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .feature-number {
-      color: #b7cbbd;
-      font-family: var(--serif);
-      font-size: 0.9rem;
-      font-style: italic;
-    }
-
-    .research-feature h3 {
-      max-width: 18ch;
-      margin: 2rem 0 1.2rem;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.06;
-    }
-
-    .research-feature p {
-      max-width: 39rem;
-      color: #dce6df;
-    }
-
-    .feature-details {
+    .header-links {
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      gap: 1.8rem;
-      padding-left: clamp(0rem, 3vw, 2rem);
-      border-left: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .detail-label,
-    .card-meta {
-      display: block;
-      margin-bottom: 0.35rem;
-      color: #b7cbbd;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .feature-details p {
-      font-family: var(--serif);
-      font-size: 1.17rem;
-      line-height: 1.4;
-    }
-
-    .feature-links a,
-    .text-link {
-      color: inherit;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.045em;
-      text-underline-offset: 0.35em;
-      text-decoration-thickness: 1px;
-    }
-
-    .feature-links {
-      margin-top: 2rem;
-    }
-
-    .feature-links a:hover,
-    .text-link:hover {
-      text-decoration-thickness: 2px;
-    }
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .experience-note {
-      display: grid;
-      grid-template-columns: minmax(190px, 0.35fr) minmax(0, 0.65fr);
-      gap: 1.5rem;
-      align-items: start;
-      margin-top: 1rem;
-      padding: 1.5rem 1.8rem;
-      border-left: 3px solid var(--clay);
-      border-radius: 0.25rem 0.8rem 0.8rem 0.25rem;
-      background: rgba(220, 232, 223, 0.62);
-    }
-
-    .experience-note h3 {
-      margin: 0;
-      font-size: 1.18rem;
-    }
-
-    .experience-note p {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 0.9rem;
-    }
-
-    .work-card {
-      display: flex;
-      flex-direction: column;
-      min-height: 20rem;
-      padding: clamp(1.5rem, 3.5vw, 2.3rem);
-      border: 1px solid var(--line);
-      border-radius: 1rem;
-      background: rgba(251, 250, 246, 0.78);
-      transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
-    }
-
-    .work-card:hover {
-      border-color: rgba(52, 95, 75, 0.55);
-      box-shadow: 0 16px 38px rgba(37, 47, 39, 0.07);
-      transform: translateY(-2px);
-    }
-
-    .work-card .card-meta {
-      color: var(--clay);
-    }
-
-    .work-card h3 {
-      margin-top: 1.25rem;
-      font-size: 1.65rem;
-    }
-
-    .work-card .link-row {
-      margin-top: auto;
-      padding-top: 1.8rem;
-    }
-
-    .education-layout {
-      display: grid;
-      grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
-      gap: clamp(3rem, 8vw, 7rem);
-      align-items: start;
-    }
-
-    .degree-block {
-      position: sticky;
-      top: 3rem;
-    }
-
-    .degree-block h2 {
-      margin: 0.8rem 0 1.1rem;
-    }
-
-    .degree-meta {
-      color: var(--sage);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .degree-date {
-      margin-top: 1rem;
-    }
-
-    .education-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .education-list li {
-      padding: 1.8rem 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .education-list li:first-child {
-      padding-top: 0;
-      border-top: 0;
-    }
-
-    .education-list h3 {
-      margin-bottom: 0.55rem;
-      font-size: 1.3rem;
-    }
-
-    .coursework {
-      display: flex;
+      gap: 18px;
+      margin-top: 14px;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.1rem;
-      margin-bottom: 0;
-      padding: 0;
-      list-style: none;
     }
 
-    .coursework li {
-      padding: 0.35rem 0.7rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(251, 250, 246, 0.65);
-      color: var(--ink-soft);
-      font-size: 0.75rem;
-    }
-
-    .beyond-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .beyond-card {
-      padding: 1.9rem;
-      border-top: 3px solid var(--sage);
-      background: rgba(251, 250, 246, 0.6);
-    }
-
-    .beyond-card:nth-child(2) {
-      border-top-color: var(--clay);
-    }
-
-    .beyond-card:nth-child(3) {
-      border-top-color: #6c6c91;
-    }
-
-    .beyond-card h3 {
-      font-size: 1.32rem;
-    }
-
-    .site-footer {
-      padding-block: 3.5rem;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-
-    .footer-title {
-      margin-bottom: 0.35rem;
-      font-family: var(--serif);
-      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
-    }
-
-    .footer-copy {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 0.88rem;
-    }
-
-    .footer-links {
-      justify-content: flex-end;
-    }
-
-    .footer-links a {
-      color: var(--sage);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+    .header-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
       text-decoration: none;
+      letter-spacing: 0.02em;
       text-transform: uppercase;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
     }
 
-    .footer-links a:hover {
-      text-decoration: underline;
-      text-underline-offset: 0.35em;
+    .header-links a:hover { border-color: var(--accent); }
+
+    /* ── TABS ── */
+    .tabs {
+      display: flex;
+      gap: 0;
+      margin-top: 36px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.6s 0.1s ease both;
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr) 280px;
-        gap: 3rem;
-      }
-
-      .math-note {
-        right: -1rem;
-      }
-
-      .questions,
-      .beyond-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .question {
-        min-height: 0;
-      }
-
-      .question-index {
-        margin-bottom: 1.8rem;
-      }
+    .tab-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 12px 22px 11px;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
     }
 
-    @media (max-width: 720px) {
-      .shell {
-        width: min(100% - 2rem, 42rem);
-      }
+    .tab-btn:hover { color: var(--fg); }
 
-      .nav {
-        min-height: auto;
-        padding-block: 1.1rem;
-        align-items: flex-start;
-      }
+    .tab-btn.active {
+      color: var(--fg);
+      border-bottom-color: var(--accent);
+    }
 
-      .nav-links {
-        justify-content: flex-end;
-        gap: 0.65rem 1rem;
-        flex-wrap: wrap;
-      }
+    /* ── PANELS ── */
+    .tab-panel {
+      display: none;
+      padding-top: 40px;
+      animation: fadeUp 0.4s ease both;
+    }
 
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: 0;
-        padding-top: 4.25rem;
-      }
+    .tab-panel.active { display: block; }
 
-      .portrait-stage {
-        width: min(82vw, 350px);
-        justify-self: center;
-        margin-top: 1rem;
-      }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-      .math-note {
-        right: -0.6rem;
-      }
+    /* ── INFO ── */
+    .info-bio {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 650px;
+      color: var(--fg);
+    }
 
-      .section-heading,
-      .research-feature,
-      .education-layout,
-      .experience-note {
-        grid-template-columns: 1fr;
-      }
+    .info-bio + .info-bio { margin-top: 14px; }
 
-      .feature-details {
-        padding: 1.8rem 0 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        border-left: 0;
-      }
+    .section-label {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      margin: 36px 0 14px;
+      color: var(--fg);
+    }
 
-      .work-grid {
-        grid-template-columns: 1fr;
-      }
+    /* ── PROJECTS ── */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
 
-      .work-card {
-        min-height: 0;
-      }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 24px;
+      margin-bottom: 12px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
 
-      .degree-block {
-        position: static;
-      }
+    .project-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+      transform: translateY(-1px);
+    }
 
-      .footer-inner {
-        align-items: flex-start;
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .project-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .project-desc {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .project-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-light);
+      transition: border-color 0.2s;
+    }
+
+    .project-links a:hover { border-color: var(--accent); }
+
+    /* ── EDUCATION ── */
+    .edu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 24px;
+      margin-bottom: 12px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .edu-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+      transform: translateY(-1px);
+    }
+
+    .edu-school {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .edu-degree {
+      font-size: 0.9rem;
+      color: var(--fg);
+      margin-top: 4px;
+    }
+
+    .edu-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .edu-details {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .edu-details strong {
+      color: var(--fg);
+      font-weight: 500;
+    }
+
+    /* ── MISC ── */
+    .facts-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .facts-list li {
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .fact-num {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--accent);
+      font-size: 1.1rem;
+      min-width: 24px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 520px) {
+      header {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
       }
 
-      .footer-links {
-        justify-content: flex-start;
-      }
-    }
+      .header-text h1 { font-size: 1.8rem; }
 
-    @media (max-width: 480px) {
-      body {
-        font-size: 0.96rem;
+      .tabs {
+        overflow-x: auto;
+        scrollbar-width: thin;
       }
 
-      .wordmark {
-        font-size: 1rem;
-      }
-
-      .nav-links {
-        max-width: 13rem;
-      }
-
-      .nav-links a {
-        font-size: 0.69rem;
-      }
-
-      h1 {
-        font-size: clamp(3rem, 16vw, 4.2rem);
-      }
-
-      .hero-actions .button {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .portrait-stage {
-        width: min(88vw, 330px);
-        padding: 0.8rem 0.8rem 0 0;
-      }
-
-      .math-note {
-        right: -0.2rem;
-        bottom: 1.2rem;
+      .tab-btn {
+        flex: 0 0 auto;
+        padding: 12px 14px 11px;
+        font-size: 0.8rem;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
+      html { scroll-behavior: auto; }
+
+      header,
+      .tabs,
+      .tab-panel {
+        animation: none;
       }
 
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
+      .project-card,
+      .edu-card {
+        transition: none;
       }
     }
   </style>
 </head>
-
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+<div class="site-wrapper">
 
-  <header class="site-header">
-    <nav class="nav shell" aria-label="Primary navigation">
-      <a class="wordmark" href="#top" aria-label="Frank Kronewitter, home">Frank Kronewitter</a>
-      <ul class="nav-links">
-        <li><a href="#questions">Questions</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#beyond">Beyond</a></li>
-      </ul>
-    </nav>
+  <header>
+    <div class="avatar-wrap" id="avatarWrap">
+      <img id="avatarImg" src="headshot.jpg" alt="Portrait of Frank Kronewitter">
+      <span class="avatar-placeholder" id="avatarPlaceholder" aria-hidden="true">F</span>
+    </div>
+    <div class="header-text">
+      <h1>Frank Kronewitter</h1>
+      <p class="tagline">Mathematics &amp; Computer Science · UCLA</p>
+      <nav class="header-links" aria-label="Contact links">
+        <a href="https://github.com/derekk024" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/frank-kronewitter/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:derekkronewitter@gmail.com">Email</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="main-content">
-    <section class="hero shell" id="top" aria-labelledby="hero-title">
-      <div>
-        <p class="eyebrow">Mathematics × Computer Science</p>
-        <h1 id="hero-title">I like problems where <em>structure</em> matters.</h1>
-        <p class="hero-copy">
-          I’m Frank, a Mathematics and Computer Science student at UCLA. I’m drawn to
-          probability, stochastic processes, algorithms, and the systems that make
-          ambitious ideas measurable in practice.
-        </p>
-        <div class="hero-actions">
-          <a class="button" href="#work">Explore my work <span class="arrow" aria-hidden="true">↓</span></a>
-          <a class="button secondary" href="mailto:derekkronewitter@gmail.com">Start a conversation</a>
-        </div>
-      </div>
+  <div class="tabs" role="tablist" aria-label="Portfolio sections">
+    <button class="tab-btn active" id="tab-button-info" type="button" role="tab" aria-selected="true" aria-controls="tab-info" tabindex="0" data-tab="info">Info</button>
+    <button class="tab-btn" id="tab-button-projects" type="button" role="tab" aria-selected="false" aria-controls="tab-projects" tabindex="-1" data-tab="projects">Projects</button>
+    <button class="tab-btn" id="tab-button-education" type="button" role="tab" aria-selected="false" aria-controls="tab-education" tabindex="-1" data-tab="education">Education</button>
+    <button class="tab-btn" id="tab-button-misc" type="button" role="tab" aria-selected="false" aria-controls="tab-misc" tabindex="-1" data-tab="misc">Miscellaneous</button>
+  </div>
 
-      <div class="portrait-stage">
-        <div class="portrait">
-          <img src="headshot.jpg" width="594" height="484" alt="Portrait of Frank Kronewitter at UCLA">
-        </div>
-        <div class="math-note" aria-hidden="true">
-          P(X<sub>t+1</sub> | X<sub>t</sub>)
-          <span>Los Angeles · UCLA</span>
-        </div>
-      </div>
-    </section>
+  <section class="tab-panel active" id="tab-info" role="tabpanel" aria-labelledby="tab-button-info">
+    <p class="info-bio">
+      I’m a Mathematics and Computer Science student at UCLA interested in probability, stochastic processes, algorithms, and mathematical research. I like problems where theoretical structure clarifies what to measure.
+    </p>
+    <p class="info-bio">
+      My work spans stochastic modeling, reinforcement learning research, and performance-oriented software—from volatility hedging and optimal transport to systems that make compiler and processor behavior measurable.
+    </p>
+  </section>
 
-    <section class="section shell" id="questions" aria-labelledby="questions-title">
-      <div class="section-heading">
-        <p class="section-kicker">Questions I return to</p>
-        <h2 id="questions-title">Theory is most useful when it clarifies what to <em>measure.</em></h2>
-      </div>
+  <section class="tab-panel" id="tab-projects" role="tabpanel" aria-labelledby="tab-button-projects" hidden>
+    <div class="project-list">
 
-      <div class="questions">
-        <article class="question">
-          <span class="question-index">01</span>
-          <h3>Probability &amp; dynamics</h3>
-          <p>How do stochastic models distinguish persistent structure from noise, especially when the underlying process is changing?</p>
-        </article>
-        <article class="question">
-          <span class="question-index">02</span>
-          <h3>Geometry &amp; transport</h3>
-          <p>How can optimal transport extend to unequal mass, noisy support, and graph structure without losing its mathematical meaning?</p>
-        </article>
-        <article class="question">
-          <span class="question-index">03</span>
-          <h3>Performance &amp; systems</h3>
-          <p>What do compilers and processors actually do with an algorithm—and which measurements reveal the real bottleneck?</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section shell" id="work" aria-labelledby="work-title">
-      <div class="section-heading">
-        <p class="section-kicker">Selected work</p>
-        <h2 id="work-title">Research, writing, and software built around <em>careful evaluation.</em></h2>
-      </div>
-
-      <article class="research-feature">
-        <div>
-          <span class="feature-number">Featured paper · 2025</span>
-          <h3>Reinforcement Learning for Volatility Hedging</h3>
-          <p>
-            A dual-asset study of Bitcoin and gold allocation using policy-gradient
-            methods, volatility-aware rewards, explicit baselines, and walk-forward
-            evaluation designed to test out-of-sample behavior.
-          </p>
-          <div class="link-row feature-links">
-            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5399564" target="_blank" rel="noopener noreferrer">Read on SSRN ↗</a>
-            <a href="https://github.com/derekk024/reinforcement-learning-volatility-hedging" target="_blank" rel="noopener noreferrer">Companion code ↗</a>
-          </div>
-        </div>
-        <div class="feature-details">
-          <div>
-            <span class="detail-label">Research setting</span>
-            <p>Rebellion Research</p>
-          </div>
-          <div>
-            <span class="detail-label">Methods</span>
-            <p>Policy gradients · PyTorch · walk-forward validation</p>
-          </div>
-          <div>
-            <span class="detail-label">Underlying question</span>
-            <p>Can an adaptive policy improve risk-adjusted allocation without relying on in-sample fit?</p>
-          </div>
+      <article class="project-card">
+        <h2 class="project-title">Reinforcement Learning for Volatility Hedging</h2>
+        <div class="project-meta">Rebellion Research · Policy Gradients · PyTorch · Walk-Forward Evaluation</div>
+        <p class="project-desc">A dual-asset study of Bitcoin and gold allocation using policy-gradient methods, volatility-aware rewards, explicit baselines, and walk-forward evaluation designed to test out-of-sample behavior.</p>
+        <div class="project-links">
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5399564" target="_blank" rel="noopener noreferrer">SSRN Paper →</a>
+          <a href="https://github.com/derekk024/reinforcement-learning-volatility-hedging" target="_blank" rel="noopener noreferrer">Companion Code →</a>
         </div>
       </article>
 
-      <aside class="experience-note" aria-labelledby="aws-title">
-        <h3 id="aws-title">Performance engineering at AWS</h3>
-        <p>
-          Built a Python/Bash performance-analysis system using llvm-mca, static
-          analysis, and binary symbol lookup. It reported instructions, cycles, and
-          IPC for 28 hot functions. Collaborated with 15 engineers to improve
-          latency attribution and accelerate development by roughly 30%.
-        </p>
-      </aside>
-
-      <div class="work-grid">
-        <article class="work-card">
-          <span class="card-meta">UCLA Department of Mathematics · Research</span>
-          <h3>Statistical Arbitrage in Cryptocurrency Markets</h3>
-          <p>
-            A stochastic research pipeline for crypto futures using PCA residuals,
-            autoregressive models, mean-reversion estimates, and liquidity-aware
-            backtesting across a broad perpetual-swap universe.
-          </p>
-          <div class="link-row">
-            <a class="text-link" href="https://overleaf.com/read/cbncwtpwgjvm#616f27" target="_blank" rel="noopener noreferrer">Writeup ↗</a>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <span class="card-meta">Backend collaboration · Python / Flask / SQL</span>
-          <h3>DocuCommit</h3>
-          <p>
-            Contributed Flask APIs for branch creation, patch-based commits, clean
-            merges, and divergence checks. Improved cross-branch history with
-            indexed SQLAlchemy joins and owner-scoped access.
-          </p>
-          <div class="link-row">
-            <a class="text-link" href="https://github.com/dangjacob101/DocuCommit" target="_blank" rel="noopener noreferrer">Repository ↗</a>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <span class="card-meta">C++20 systems prototype</span>
-          <h3>TelemetryOps</h3>
-          <p>
-            A compact telemetry pipeline exploring reliable ingestion, idempotent
-            SQLite WAL persistence, rolling metrics, threshold alerts, service
-            health, and behavior under generated load.
-          </p>
-          <div class="link-row">
-            <a class="text-link" href="https://github.com/derekk024/TelemetryOps" target="_blank" rel="noopener noreferrer">Repository ↗</a>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <span class="card-meta">Bruin Sports Analytics · Collaborative study</span>
-          <h3>Wide Receiver Blocking Effectiveness</h3>
-          <p>
-            Led a six-person team in developing a quantitative framework from
-            play-level features and tracking proxies, including an interpretable
-            decision-tree model and a reproducible labeling pipeline.
-          </p>
-          <div class="link-row">
-            <a class="text-link" href="https://github.com/derekk024/nfl-blocking-analytics" target="_blank" rel="noopener noreferrer">Repository ↗</a>
-            <a class="text-link" href="https://github.com/derekk024/nfl-blocking-analytics/blob/main/A%20Quantitative%20Framework%20for%20Assessing%20Wide%20Receiver%20Blocking%20Effectiveness%20Using%20Player%20Tracking%20Data.pdf" target="_blank" rel="noopener noreferrer">Paper ↗</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section shell" id="education" aria-labelledby="education-title">
-      <div class="education-layout">
-        <div class="degree-block">
-          <p class="section-kicker">Education &amp; research</p>
-          <h2 id="education-title">UCLA</h2>
-          <p class="degree-meta">B.S. Mathematics · B.S. Computer Science</p>
-          <p class="education-copy degree-date">Expected June 2028 · GPA 3.8</p>
+      <article class="project-card">
+        <h2 class="project-title">Statistical Arbitrage in Cryptocurrency Markets</h2>
+        <div class="project-meta">UCLA Department of Mathematics · Stochastic Modeling · Backtesting</div>
+        <p class="project-desc">A stochastic research pipeline for crypto futures using PCA residuals, autoregressive models, mean-reversion estimates, and liquidity-aware backtesting across a broad perpetual-swap universe.</p>
+        <div class="project-links">
+          <a href="https://overleaf.com/read/cbncwtpwgjvm#616f27" target="_blank" rel="noopener noreferrer">Writeup →</a>
         </div>
+      </article>
 
-        <ul class="education-list">
-          <li>
-            <h3>Stochastic modeling</h3>
-            <p class="education-copy">
-              Undergraduate research with Professor Zhaoyu Zhang on stochastic
-              processes, PCA-based representations, autoregressive models, and
-              mean-reversion in liquid cryptocurrency markets.
-            </p>
-          </li>
-          <li>
-            <h3>Optimal transport</h3>
-            <p class="education-copy">
-              Researching scalable optimal transport for unbalanced measures on
-              metric graphs with PhD mentor William Chang, including extensions
-              motivated by unequal mass, noisy supports, and outliers.
-            </p>
-          </li>
-          <li>
-            <h3>A deliberately broad foundation</h3>
-            <p class="education-copy">
-              My coursework connects formal mathematics with algorithmic and
-              computational thinking.
-            </p>
-            <ul class="coursework">
-              <li>Stochastic Processes</li>
-              <li>Probability</li>
-              <li>Graduate Algebra</li>
-              <li>Algorithms &amp; Complexity</li>
-              <li>Systems &amp; Architecture</li>
-              <li>Machine Learning</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </section>
+      <article class="project-card">
+        <h2 class="project-title">Performance Analysis at Amazon Web Services</h2>
+        <div class="project-meta">Performance Engineering · Python · Bash · LLVM</div>
+        <p class="project-desc">Developed performance-analysis capabilities integrating llvm-mca, static analysis, and binary symbol lookup. Reported instructions, cycles, and IPC for 28 hot functions, improving latency attribution and shortening development cycles by roughly 30%.</p>
+      </article>
 
-    <section class="section shell" id="beyond" aria-labelledby="beyond-title">
-      <div class="section-heading">
-        <p class="section-kicker">Beyond the coursework</p>
-        <h2 id="beyond-title">I enjoy problems with uncertainty, strategy, and a clear way to be <em>wrong.</em></h2>
-      </div>
+      <article class="project-card">
+        <h2 class="project-title">DocuCommit</h2>
+        <div class="project-meta">Backend Collaboration · Python · Flask · SQLAlchemy</div>
+        <p class="project-desc">Contributed Flask APIs for branch creation, patch-based commits, clean merges, and divergence checks. Improved cross-branch history with indexed SQLAlchemy joins and owner-scoped access.</p>
+        <div class="project-links">
+          <a href="https://github.com/dangjacob101/DocuCommit" target="_blank" rel="noopener noreferrer">Repository →</a>
+        </div>
+      </article>
 
-      <div class="beyond-grid">
-        <article class="beyond-card">
-          <h3>Mathematical competition</h3>
-          <p>
-            Putnam participant and member of UCLA’s Undergraduate Math Association.
-            I value the compression, creativity, and proof discipline that
-            competition problems demand.
-          </p>
-        </article>
-        <article class="beyond-card">
-          <h3>Programming under pressure</h3>
-          <p>
-            CodeSprint LA 2026 winner and ACM ICPC participant. Contests are where
-            algorithmic ideas become concrete—and where hidden assumptions surface
-            quickly.
-          </p>
-        </article>
-        <article class="beyond-card">
-          <h3>Probability in practice</h3>
-          <p>
-            Selected for Two Sigma New Seekers (1 of 60). I also spend time with
-            Bruin Quant Traders and UCLA Poker Group, where expected value meets
-            incomplete information.
-          </p>
-        </article>
-      </div>
-    </section>
-  </main>
+      <article class="project-card">
+        <h2 class="project-title">TelemetryOps</h2>
+        <div class="project-meta">C++20 Systems Prototype · HTTP APIs · SQLite WAL · Load Testing</div>
+        <p class="project-desc">A compact telemetry pipeline exploring reliable ingestion, idempotent SQLite WAL persistence, rolling metrics, threshold alerts, service health, and behavior under generated load.</p>
+        <div class="project-links">
+          <a href="https://github.com/derekk024/TelemetryOps" target="_blank" rel="noopener noreferrer">Repository →</a>
+        </div>
+      </article>
 
-  <footer class="site-footer">
-    <div class="footer-inner shell">
-      <div>
-        <p class="footer-title">Let’s compare notes.</p>
-        <p class="footer-copy">Frank Kronewitter · Los Angeles, California</p>
-      </div>
-      <nav class="link-row footer-links" aria-label="Contact links">
-        <a href="mailto:derekkronewitter@gmail.com">Email</a>
-        <a href="https://github.com/derekk024" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/frank-kronewitter/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-      </nav>
+      <article class="project-card">
+        <h2 class="project-title">Wide Receiver Blocking Effectiveness</h2>
+        <div class="project-meta">Bruin Sports Analytics · Player Tracking · Collaborative Study</div>
+        <p class="project-desc">Led a six-person team in developing a quantitative framework from play-level features and tracking proxies, including an interpretable decision-tree model and a reproducible labeling pipeline.</p>
+        <div class="project-links">
+          <a href="https://github.com/derekk024/nfl-blocking-analytics" target="_blank" rel="noopener noreferrer">Repository →</a>
+          <a href="https://github.com/derekk024/nfl-blocking-analytics/blob/main/A%20Quantitative%20Framework%20for%20Assessing%20Wide%20Receiver%20Blocking%20Effectiveness%20Using%20Player%20Tracking%20Data.pdf" target="_blank" rel="noopener noreferrer">Paper →</a>
+        </div>
+      </article>
+
     </div>
-  </footer>
+  </section>
+
+  <section class="tab-panel" id="tab-education" role="tabpanel" aria-labelledby="tab-button-education" hidden>
+    <article class="edu-card">
+      <h2 class="edu-school">University of California, Los Angeles</h2>
+      <div class="edu-degree">B.S. Mathematics · B.S. Computer Science</div>
+      <div class="edu-meta">Expected June 2028 · GPA 3.8 · Los Angeles, CA</div>
+      <p class="edu-details"><strong>Coursework:</strong> Stochastic Processes, Probability, Graduate Algebra, Algorithms &amp; Complexity, Systems &amp; Architecture, and Machine Learning.</p>
+    </article>
+
+    <article class="edu-card">
+      <h2 class="edu-school">Undergraduate Research</h2>
+      <div class="edu-meta">Stochastic Modeling · Optimal Transport</div>
+      <p class="edu-details">Research with Professor Zhaoyu Zhang on stochastic processes, PCA-based representations, autoregressive models, and mean reversion in liquid cryptocurrency markets.</p>
+      <p class="edu-details">Researching scalable optimal transport for unbalanced measures on metric graphs with PhD mentor William Chang, including extensions motivated by unequal mass, noisy supports, and outliers.</p>
+    </article>
+  </section>
+
+  <section class="tab-panel" id="tab-misc" role="tabpanel" aria-labelledby="tab-button-misc" hidden>
+    <p class="section-label">Activities &amp; distinctions</p>
+    <ul class="facts-list">
+      <li><span class="fact-num">01</span><span>Putnam participant and member of UCLA’s Undergraduate Math Association.</span></li>
+      <li><span class="fact-num">02</span><span>CodeSprint LA 2026 winner and ACM ICPC participant.</span></li>
+      <li><span class="fact-num">03</span><span>Selected for Two Sigma New Seekers as one of 60 participants.</span></li>
+      <li><span class="fact-num">04</span><span>Member of Bruin Quant Traders and UCLA Poker Group.</span></li>
+    </ul>
+  </section>
+
+</div>
+
+<script>
+  const buttons = Array.from(document.querySelectorAll('.tab-btn'));
+  const panels = Array.from(document.querySelectorAll('.tab-panel'));
+
+  function activateTab(button, moveFocus = false) {
+    buttons.forEach((candidate) => {
+      const selected = candidate === button;
+      candidate.classList.toggle('active', selected);
+      candidate.setAttribute('aria-selected', String(selected));
+      candidate.tabIndex = selected ? 0 : -1;
+    });
+
+    panels.forEach((panel) => {
+      const selected = panel.id === button.getAttribute('aria-controls');
+      panel.classList.toggle('active', selected);
+      panel.hidden = !selected;
+    });
+
+    if (moveFocus) {
+      button.focus();
+    }
+  }
+
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', () => activateTab(button));
+
+    button.addEventListener('keydown', (event) => {
+      let nextIndex;
+
+      if (event.key === 'ArrowRight') {
+        nextIndex = (index + 1) % buttons.length;
+      } else if (event.key === 'ArrowLeft') {
+        nextIndex = (index - 1 + buttons.length) % buttons.length;
+      } else if (event.key === 'Home') {
+        nextIndex = 0;
+      } else if (event.key === 'End') {
+        nextIndex = buttons.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      activateTab(buttons[nextIndex], true);
+    });
+  });
+
+  const img = document.getElementById('avatarImg');
+  const placeholder = document.getElementById('avatarPlaceholder');
+
+  img.addEventListener('load', () => {
+    img.style.display = 'block';
+    placeholder.style.display = 'none';
+  });
+
+  img.addEventListener('error', () => {
+    img.style.display = 'none';
+    placeholder.style.display = 'inline';
+  });
+
+  if (img.complete && img.naturalWidth > 0) {
+    img.style.display = 'block';
+    placeholder.style.display = 'none';
+  }
+</script>
 </body>
 </html>
